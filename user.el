@@ -26,6 +26,17 @@
 (setq mac-command-modifier 'super) ; sets the Command key as super
 (setq ns-command-modifier 'super)
 
+;; Enable xterm mouse reporting from the terminal
+(unless window-system
+  (xterm-mouse-mode t)
+  (global-set-key [mouse-4] '(lambda ()
+			       (interactive)
+			       (scroll-down 1)))
+  (global-set-key [mouse-5] '(lambda ()
+			       (interactive)
+			       (scroll-up 1)))
+)
+
 
 
 ;; Setup handling of backup files.
